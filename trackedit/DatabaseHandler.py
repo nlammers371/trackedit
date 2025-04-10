@@ -171,6 +171,10 @@ class DatabaseHandler:
         print("new database:", self.db_filename_new)
         print("new logfile:", log_filename_new)
 
+        #### NL addtion: found that db path was not updated???
+        # new_db_path = os.path.join(self.working_directory, self.db_filename_new)
+        # self.config_adjusted.data_config.__dict__["database_path"] = new_db_path
+
         return log_file_path
 
     def log(self, message):
@@ -182,7 +186,7 @@ class DatabaseHandler:
         # import db filename properly into an Ultrack config, neccesary for chaning values in database
         config_adjusted = MainConfig()
         config_adjusted.data_config.working_dir = self.working_directory
-        config_adjusted.data_config.database_file_name = self.db_filename_new
+        # config_adjusted.data_config.database_file_name = self.db_filename_new
         return config_adjusted
 
     def copy_database(self, working_directory, db_filename_old, allow_overwrite=False):
@@ -219,7 +223,12 @@ class DatabaseHandler:
         return db_filename_old, db_filename_new, log_filename_new
 
     def add_missing_columns_to_db(self):
-        engine = create_engine(self.config_adjusted.data_config.database_path)
+
+        ### NL edit
+        new_db_path = os.path.join("sqlite:///" + str(self.working_directory), self.db_filename_new)
+        engine = create_engine(new_db_path)
+        ####
+        # engine = create_engine(self.config_adjusted.data_config.database_path)
         inspector = inspect(engine)
 
         expected_columns = self.get_expected_columns(engine)
