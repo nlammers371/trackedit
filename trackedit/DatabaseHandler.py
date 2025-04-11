@@ -122,6 +122,10 @@ class DatabaseHandler:
             time_window=self.time_window,
             color_by_field=NodeDB.id,
         )
+        ## NL edit: changed dtype to uint16
+        # self.segments.dtype=np.uint16
+        ###
+
         self.annotArray = DatabaseArray(
             database_path=self.db_path_new,
             shape=self.data_shape_chunk,

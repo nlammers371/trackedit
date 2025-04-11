@@ -19,12 +19,14 @@ warnings.filterwarnings("ignore", category=FutureWarning, message=".*qt_viewer.*
 
 working_directory = Path(
     # "/home/teun.huijben/Documents/data/Akila/20241003/neuromast4_t851/adjusted/"
-   "E:\\Nick\\Cole Trapnell's Lab Dropbox\\Nick Lammers\\Nick\\killi_tracker\\tracking\\20250311_LCP1-NLSMSC\\tracking_20250328_redux\\well0000\\track_0000_2339\\"
+   # "E:\\Nick\\Cole Trapnell's Lab Dropbox\\Nick Lammers\\Nick\\killi_tracker\\tracking\\20250311_LCP1-NLSMSC\\tracking_20250328_redux\\well0000\\track_0000_2339\\"
+    "E:\\Nick\\Cole Trapnell's Lab Dropbox\\Nick Lammers\\Nick\\killi_tracker\\tracking\\20250311_LCP1-NLSMSC_marker\\tracking_20250328_redux\\well0000\\track_1200_2339\\"
 )
+
 
 db_filename_start = "latest"  # name of the database file to start from, or "latest"
 # to start from the latest version, defaults to "data.db"
-tmax = 10  # maximum number of frames display, defaults to None (use all frames)
+tmax = 1000  # maximum number of frames display, defaults to None (use all frames)
 scale = (3, 1, 1)  # (Z),Y,X, defaults to (1, 1, 1)
 allow_overwrite = False  # overwrite existing database/changelog, defaults to False
 
